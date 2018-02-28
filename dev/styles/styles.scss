@@ -1,0 +1,21 @@
+$darkBlue: #041a9b;
+$grey: #666666;
+$lightBlue: #809dc4;
+$yellow: #e59319;
+
+$heading: 'Merriweather', serif;
+$body: 'Helvetica', sans-serif;
+
+
+body {
+    background-color: $lightBlue;
+}
+
+h2 {
+    font-family: $heading;
+}
+
+p {
+    font-family: $body;
+}
+
