@@ -7,15 +7,40 @@ $heading: 'Merriweather', serif;
 $body: 'Helvetica', sans-serif;
 
 
+@import "partials/setup.scss";
+@import "partials/navBar.scss";
+@import "partials/links.scss";
+@import "partials/footer.scss";
+
 body {
-    background-color: $lightBlue;
+    background-color: white;
 }
 
-h2 {
+.app-container {
+    margin: 20px;
+    border: 2px solid $lightBlue;
+}
+
+.mainFont {
     font-family: $heading;
+    color: $yellow;
 }
 
 p {
     font-family: $body;
 }
 
+a {
+    text-decoration: none;
+    font-family: $heading;
+    color:$grey;
+}
+
+.home-container,
+.about-container,
+.signin-container,
+.contact-container,
+.myBrands-container
+ {
+    height: 100vh;
+}
