@@ -1,23 +1,73 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
+import NavBar from './NavBar';
+import Home from './Home';
+import Footer from './Footer'
+
+
+import About from './About';
+import SignIn from './SignIn';
+import Contact from './Contact';
+import MyBrands from './MyBrands';
+
+
 import {
   BrowserRouter as Router,
   Route,
-  Link } from 'react-router-dom';
-import axios from 'axios';
+  Link,
+  } from 'react-router-dom';
+
+
+  // Initialize Firebase
+
+var config = {
+  apiKey: "AIzaSyD9jDcaoMT9Tc8KnBiMKRXjlaKsQg3PCzU",
+  authDomain: "branditproject.firebaseapp.com",
+  databaseURL: "https://branditproject.firebaseio.com",
+  projectId: "branditproject",
+  storageBucket: "branditproject.appspot.com",
+  messagingSenderId: "734808400111"
+};
+firebase.initializeApp(config);
+
 
 
 class App extends React.Component {
+ constructor() {
+   super()
+   this.state = {
+    //  signIn: false
 
-    render() {
-      return (
+   }
+ }
+
+ componentDidMount() {
+
+ } 
+ 
+  render() {
+
+    return (
+      <Router>
         <div>
-          <img src="./dev/images/brandit-logo.svg" alt=""/>
-         <h2>Brandit</h2>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta tenetur necessitatibus, explicabo doloremque ab eos dolorem id velit obcaecati optio saepe reprehenderit facere provident nisi quos alias harum illum distinctio?</p>
+            <div className="app-container">
+              {/* <NavBar signIn={this.state.signIn}/> */}
+              <NavBar />
+              {/* Adding paths to different "pages" */}
+              <Route path="/" exact component={Home} />
+              <Route path="/about" exact component={About} />
+              <Route path="/mybrands" exact component={MyBrands} />
+              <Route path="/signin" exact component={SignIn} />
+              <Route path="/contact" exact component={Contact} /> 
+            </div>
+          <Footer />
         </div>
-      )
-    }
+      </Router>
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
