@@ -11,7 +11,9 @@ $body: 'Helvetica', sans-serif;
 @import "partials/navBar.scss";
 @import "partials/links.scss";
 @import "partials/footer.scss";
-@import "partials/LogoMark.scss";
+@import "partials/logoMark.scss";
+@import "partials/userinputtext.scss";
+@import "partials/userlogoicon.scss";
 
 body {
     background-color: white;

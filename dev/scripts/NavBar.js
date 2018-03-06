@@ -16,7 +16,7 @@ import {
 const navBar = () => {
     return (
        
-        <div className="mainHeader">
+        <div className="mainHeader clearfix">
             <nav className="nav-left">
                 <ul>
                     <li>   

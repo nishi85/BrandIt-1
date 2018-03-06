@@ -5,8 +5,8 @@ class UserLogoMark extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      choice: [],
-      name: [],
+      choice: "",
+      name: "",
       logoStyle: "",
       logoState: false
     };
@@ -20,13 +20,10 @@ class UserLogoMark extends React.Component {
     dbref.on("value", snapshot => {
       console.log("hey");
       const data = snapshot.val();
-      const state = [];
-      for (let key in data) {
-        state.push(data[key]);
-      }
+    
       console.log(data);
       this.setState({
-        choice: state
+        choice: data
       });
     });
 
@@ -34,13 +31,9 @@ class UserLogoMark extends React.Component {
     dbref2.on("value", snapshot => {
       console.log("hey");
       const data = snapshot.val();
-      const state = [];
-      for (let key in data) {
-        state.push(data[key]);
-      }
       console.log(data);
       this.setState({
-        name: state
+        name: data
       });
     });
   }
@@ -56,9 +49,10 @@ class UserLogoMark extends React.Component {
 
     const logo = this.state.logoStyle;
     const dbref = firebase.database().ref("/logo");
-    dbref.push(logo);
+    dbref.set(logo);
     this.setState({
-      logoState: true
+      logoState: true,
+      logoStyle: logo 
     });
   }
 
@@ -77,7 +71,7 @@ class UserLogoMark extends React.Component {
               <h3>{this.state.name}</h3>
             </div>
 
-            <input type="radio" value="option1" onChange={this.handleChange} checked={this.state.logoStyle === "option1"} />
+            <input type="radio" value="option1" onChange={this.handleChange}  />
           </label>
 
           <label>
@@ -91,7 +85,7 @@ class UserLogoMark extends React.Component {
               </div>
               <h3>{this.state.name}</h3>
             </div>
-            <input type="radio" value="option2" onChange={this.handleChange} checked={this.state.logoStyle === "option2"} />
+            <input type="radio" value="option2" onChange={this.handleChange}  />
           </label>
 
           <label>
@@ -102,11 +96,13 @@ class UserLogoMark extends React.Component {
               </div>
               <h3>{this.state.name}</h3>
             </div>
-            <input type="radio" value="option3" onChange={this.handleChange} checked={this.state.logoStyle === "option3"} />
+            <input type="radio" value="option3" onChange={this.handleChange} />
           </label>
 
           <input type="submit" value="Choose an Icon" />
         </form>
+
+        <p>{this.state.logoStyle}</p>
 
         {this.state.logoState === true && this.state.logoStyle === "option1" ? <div className="logo-01-mark">
             <img src="./dev/assets/logo-01.svg" alt="" />

@@ -232,6 +232,56 @@ button {
   border: none;
   background-color: white; }
 
+.uitWrapper {
+  width: 100%; }
+  .uitWrapper form {
+    width: 45%;
+    margin: 0 auto;
+    text-align: center; }
+    .uitWrapper form label {
+      width: 100%;
+      margin: 0 auto;
+      float: left; }
+    .uitWrapper form input[type="text"] {
+      width: 100%;
+      float: left;
+      margin: 25px; }
+    .uitWrapper form .searchHolder {
+      width: 100%;
+      border: 1px solid blue;
+      clear: both; }
+      .uitWrapper form .searchHolder input[type="search"] {
+        width: 32.3333%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        float: left; }
+    .uitWrapper form .btnHolder {
+      text-align: center;
+      width: 100%; }
+      .uitWrapper form .btnHolder input[type="submit"] {
+        width: 200px;
+        height: 25px; }
+
+.uliWrapper {
+  width: 100%; }
+  .uliWrapper h2 {
+    text-align: center; }
+  .uliWrapper .logoSelector {
+    width: 60%;
+    float: left; }
+    .uliWrapper .logoSelector .icon_ctn {
+      width: 33.3333%;
+      float: left; }
+      .uliWrapper .logoSelector .icon_ctn .icon_btn {
+        border: 1px solid red; }
+  .uliWrapper .logoSelection {
+    width: 30%;
+    float: left; }
+    .uliWrapper .logoSelection .logoContainer {
+      width: 90%; }
+      .uliWrapper .logoSelection .logoContainer img {
+        width: 100%; }
+
 body {
   background-color: white; }
 

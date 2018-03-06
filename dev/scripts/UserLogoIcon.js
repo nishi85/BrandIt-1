@@ -4,62 +4,87 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class UserLogoIcon extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.location.state.icons2[0])
          this.state = {
-        choice: ""
+        choice: "",
+        selection: false
     };
     this.handleChoice = this.handleChoice.bind(this);
 
     }
 
-      handleChoice(url) {
-    //e.preventDefault();
+    handleChoice(url) {
     console.log(url);
     const choice = url;
     const dbref = firebase.database().ref("/choice");
-    dbref.push(choice);
+    dbref.set(choice);
     this.setState({
-      choice: choice
+      choice: choice,
+      selection: true
     });
   }
 
     render() {
-        return <div>
-            <p>Nishi</p>
+        return <div className="uliWrapper clearfix">
+           
+           
+     <div className="logoSelector clearfix">
+                <h2>Choose your logo icon:</h2>
+         
+                {this.props.location.state.icons.map(icon => {
+                  return <div className="icon_ctn">
+                      <button onClick={() => {
+                          this.handleChoice(icon.preview_url);
+                        }}>
+                        <img className="icon_fill" src={icon.preview_url} alt="" />
+                      </button>
+                    </div>;
+                })}
+         
+                {this.props.location.state.icons2.map(icon => {
+                  return <div className="icon_ctn">
+                      <button onClick={() => {
+                          this.handleChoice(icon.preview_url);
+                        }}>
+                        <img className="icon_fill" src={icon.preview_url} alt="" />
+                      </button>
+                    </div>;
+                })}
+         
+                {this.props.location.state.icons3.map(icon => {
+                  return <div className="icon_ctn">
+                      <button onClick={() => {
+                          this.handleChoice(icon.preview_url);
+                        }}>
+                        <img className="icon_fill" src={icon.preview_url} alt="" />
+                      </button>
+                    </div>;
+                })}
+         
+     </div>
 
-            {this.props.location.state.icons.map(icon => {
-              return <div className="icon_ctn">
-                  <button onClick={() => {
-                      this.handleChoice(icon.preview_url);
-                    }}>
-                    <img className="icon_fill" src={icon.preview_url} alt="" />
-                  </button>
-                </div>;
-            })}
-
-            {this.props.location.state.icons2.map(icon => {
-              return <div className="icon_ctn">
-                  <button onClick={() => {
-                      this.handleChoice(icon.preview_url);
-                    }}>
-                    <img className="icon_fill" src={icon.preview_url} alt="" />
-                  </button>
-                </div>;
-            })}
-
-            {this.props.location.state.icons3.map(icon => {
-              return <div className="icon_ctn">
-                  <button onClick={() => {
-                      this.handleChoice(icon.preview_url);
-                    }}>
-                    <img className="icon_fill" src={icon.preview_url} alt="" />
-                  </button>
-                </div>;
-            })}
 
             <Link to={`/UserLogoMark`}>
-               Next Page
+
+              <button>
+                  <img src="./dev/assets/arrow.svg" alt="" />
+              </button>
+
             </Link>
+
+
+
+<div className ="logoSelection">
+    <h2>Your current selection:</h2>
+
+    <div className ="logoContainer">
+        <img src={this.state.choice} alt=""/>
+    </div>
+
+</div>
+
+
+
+
           </div>;
     }
 }

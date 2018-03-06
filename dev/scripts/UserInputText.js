@@ -20,7 +20,8 @@ constructor() {
       query2: "",
       icons3: [],
       query3: "",
-      companyName:""
+      companyName:"",
+      searched: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -110,7 +111,7 @@ constructor() {
 
     const name = this.state.companyName;
     const dbref = firebase.database().ref("/name");
-    dbref.push(name);
+    dbref.set(name);
     this.setState({
     companyName: name
     });
@@ -119,16 +120,22 @@ constructor() {
 
 
   render() {
-    return <div className="wrapper">
-        <form onSubmit={this.handleSubmit}>
+    return <div className="uitWrapper clearfix">
+        <form className ="clearfix" onSubmit={this.handleSubmit}>
           <label htmlFor="query">Your Company Name: </label>
           <input type="text" value={this.state.companyName} onChange={this.handleChange} id="companyName" required />
-
           <label htmlFor="query">Your key words: </label>
-          <input type="search" value={this.state.query} onChange={this.handleChange} id="query" required />
-          <input type="search" value={this.state.query2} onChange={this.handleChange} id="query2" required />
-          <input type="search" value={this.state.query3} onChange={this.handleChange} id="query3" required />
-          <input type="submit" value="Search for Icons" />
+
+    <div className ="searchHolder clearfix">
+              <input type="search" value={this.state.query} onChange={this.handleChange} id="query" required />
+              <input type="search" value={this.state.query2} onChange={this.handleChange} id="query2" required />
+              <input type="search" value={this.state.query3} onChange={this.handleChange} id="query3" required />
+    </div>
+
+         <div className="btnHolder">
+              <input type="submit" value="Search" />
+         </div>
+
         </form>
 
         <Link to={
@@ -144,35 +151,11 @@ constructor() {
                         companyName: this.state.companyName }
 
             }}>
-         <button>next page</button>
+         <button>
+             <img src="./dev/assets/arrow.svg" alt="" />
+         </button>
         </Link>
 
-        {/* {this.state.icons.map(icon => {
-          return <SingleIcon icon={icon} key={icon.id} />;
-        })}
-
-        {this.state.icons.map(icon => {
-          // return <Link to={`/choices/${icon.id}`}>Create Idea</Link>;
-          return <Link to={`/choices/${icon.id}`}>Create Idea</Link>;
-
-        })}
-
-        {this.state.icons2.map(icon => {
-          return <SingleIcon icon={icon} key={icon.id} />;
-        })}
-
-        {this.state.icons2.map(icon => {
-          return <Link to={`/choices/${icon.id}`}>Create Idea</Link>;
-        })}
-
-        {this.state.icons3.map(icon => {
-          return <SingleIcon icon={icon} key={icon.id} />;
-        })}
-
-        {this.state.icons3.map(icon => {
-          // return <Link to={`/choices/${icon.id}`}>Create Idea</Link>;
-          return <Link to={`/choices/${icon.id}`}>Create Idea</Link>;
-        })} */}
       </div>;
   }
 }
