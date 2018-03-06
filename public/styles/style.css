@@ -175,6 +175,63 @@ li {
   text-align: center;
   margin: 0; }
 
+.userLogoMark-container {
+  padding: 200px; }
+
+.logo-01-mark,
+.logo-02-mark,
+.logo-03-mark {
+  width: 250px;
+  position: relative; }
+  .logo-01-mark img,
+  .logo-02-mark img,
+  .logo-03-mark img {
+    width: 100%; }
+
+.logo-01 {
+  width: 40px;
+  position: absolute;
+  top: 110px;
+  left: 50px; }
+  .logo-01 img {
+    width: 100%; }
+
+.logo-01-icon {
+  width: 40px;
+  position: absolute;
+  top: 110px;
+  left: 150px; }
+  .logo-01-icon img {
+    width: 100%; }
+
+.logo-02 {
+  width: 40px;
+  position: absolute;
+  top: 153px;
+  left: 100px; }
+  .logo-02 img {
+    width: 100%; }
+
+.logo-02-icon {
+  width: 40px;
+  position: absolute;
+  top: 60px;
+  left: 100px; }
+  .logo-02-icon img {
+    width: 100%; }
+
+.logo-03 {
+  width: 40px;
+  position: absolute;
+  top: 95px;
+  left: 100px; }
+  .logo-03 img {
+    width: 100%; }
+
+button {
+  border: none;
+  background-color: white; }
+
 body {
   background-color: white; }
 
@@ -198,5 +255,6 @@ a {
 .about-container,
 .signin-container,
 .contact-container,
-.myBrands-container {
+.myBrands-container,
+.userLogoMark-container {
   height: 100vh; }

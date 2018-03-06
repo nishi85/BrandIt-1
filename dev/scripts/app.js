@@ -13,6 +13,7 @@ import Contact from './Contact';
 import MyBrands from './MyBrands';
 import UserInputText from './UserInputText'
 import UserLogoIcon from "./UserLogoIcon";
+import UserLogoMark from "./UserLogoMark";
 
 
 import {
@@ -64,7 +65,8 @@ class App extends React.Component {
               <Route path="/signin" exact component={SignIn} />
               <Route path="/contact" exact component={Contact} /> 
               <Route path="/UserInputText" exact component={UserInputText} /> 
-               <Route path="/UserLogoIcon" exact component={UserLogoIcon} /> 
+              <Route path="/UserLogoIcon" exact component={UserLogoIcon} /> 
+              <Route path="/UserLogoMark" exact component={UserLogoMark} /> 
             </div>
           <Footer />
         </div>

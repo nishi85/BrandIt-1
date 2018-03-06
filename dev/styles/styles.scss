@@ -11,6 +11,7 @@ $body: 'Helvetica', sans-serif;
 @import "partials/navBar.scss";
 @import "partials/links.scss";
 @import "partials/footer.scss";
+@import "partials/LogoMark.scss";
 
 body {
     background-color: white;
@@ -40,7 +41,8 @@ a {
 .about-container,
 .signin-container,
 .contact-container,
-.myBrands-container
+.myBrands-container,
+.userLogoMark-container
  {
     height: 100vh;
 }

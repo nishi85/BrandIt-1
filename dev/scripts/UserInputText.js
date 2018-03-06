@@ -1,14 +1,12 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 //inside the home component 
 
 // input text your company
 // input text your keywords
-
-//55555555555555555555555555555555
 
 
 class UserInputText extends React.Component {
@@ -109,6 +107,13 @@ constructor() {
     this.searchIcons();
     this.searchIcons2();
     this.searchIcons3();
+
+    const name = this.state.companyName;
+    const dbref = firebase.database().ref("/name");
+    dbref.push(name);
+    this.setState({
+    companyName: name
+    });
   }
 
 
